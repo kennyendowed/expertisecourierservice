@@ -17,17 +17,16 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+ Vue.component('order-progress', require('./components/OrderProgress.vue').default);
+ Vue.component('order-alert', require('./components/OrderAlert.vue').default);
+ Vue.component('order-notifications', require('./components/OrderNotifications.vue').default);
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-const app = new Vue({
-    el: '#app'
-});
+ const app = new Vue({
+     el: '#app',
+     mounted() {
+       Echo.channel('pizza-tracker')
+       .listen('OrderStatusChanged', (e) => {
+         console.log('omgggg realtime bro')
+       });
+     }
+ });

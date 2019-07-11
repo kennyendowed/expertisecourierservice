@@ -1,7 +1,8 @@
 <?php
-use App\Models\About;
-use App\Models\Service;
-use App\Models\upevent;
+use App\Events\OrderStatusChanged;
+// use App\Models\About;
+// use App\Models\Service;
+// use App\Models\upevent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,14 +15,20 @@ use App\Models\upevent;
 */
 
 Route::get('/', function () {
-
-  $data = About::all();
-  $data3 = upevent::all();
-  $data2 = Service::all();
-  return view('welcome', compact('data',$data,'data2',$data2,'data3',$data3));
+return view('welcome');
+  // $data = About::all();
+  // $data3 = upevent::all();
+  // $data2 = Service::all();
+//  return view('welcome', compact('data',$data,'data2',$data2,'data3',$data3));
 });
 // Route::get('/', 'HomeController@welcomehome')->name('/');
 
+
+Route::get('/fire', function () {
+    event(new OrderStatusChanged);
+
+    return 'Fired';
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@home')->name('home');
@@ -38,7 +45,8 @@ Route::get('/clear-cache', function() {
 Route::post('/register_new_user', 'Auth\RegisterController@createAffiliate')->name('register_new_user');
 
 Route::post('/login', 'Auth\LoginController@affiliateLogin')->name('log_affiliate');
-
+Route::get('/orders/{order}', 'GeneralController@show')->name('orders');
+  Route::get('/orders', 'GeneralController@index')->name('orders');
 
 
 Route::group(['middleware'=>'auth'], function () {

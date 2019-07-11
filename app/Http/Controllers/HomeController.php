@@ -3,10 +3,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\items;
-use App\Models\videos;
-use App\Models\About;
-use App\Models\Service;
 use App\User;
 use DB;
 use App\Models\upevent;
@@ -37,13 +33,8 @@ class HomeController extends Controller
    */
   public function index()
   {
-//     var_dump(getenv('PATH'));
-// var_dump(exec('which ffmpeg'));
-// var_dump(ini_get('open_basedir'));
-// var_dump(is_file(exec('which ffmpeg')));
-// var_dump(is_executable(exec('which ffmpeg')));
-$videos = videos::all();
-return view('home', compact('videos',$videos));
+
+return view('home');
   }
 
   //update user profile

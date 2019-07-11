@@ -3,21 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Auth;
+use App\Order;
 class GeneralController extends Controller
 {
   public function __construct()
   {
-     $this->middleware('auth');
-     $this->middleware('guest:admin');
-     $this->middleware('guest:business');
-     $this->middleware('guest:affiliate');
+
   }
 
 
-    public function profile(Request $req)
- {
+          public function index()
+            {
 
- }
+              return view('pages.Tracker');
+            }
+
+            /**
+       * Display the specified resource.
+       *
+       * @param  int  $id
+       * @return \Illuminate\Http\Response
+       */
+      public function show(Order $order)
+      {
+          return view('show', compact('order'));
+      }
 
 }

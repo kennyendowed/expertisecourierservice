@@ -52,13 +52,13 @@ class RegisterController extends Controller
 
 
     //is_permission
-    
+
 //Note Admin 1
 // Super admin 2
 //User 3
 //Invalid user 0
 
-          User::create([
+      $datat=    User::create([
                 //   'user_id' => $user_id,
                    'username' => $request['username'],
                    'email' => $request['email'],
@@ -70,8 +70,8 @@ class RegisterController extends Controller
 
                ]);
 
-
-             return redirect()->intended('login');
+// dd($datat);
+          return redirect()->intended('login');
 
 
     }
