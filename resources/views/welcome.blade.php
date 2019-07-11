@@ -78,10 +78,10 @@ ul{
                  <hr>
                  <ul class="list-group">
 
-                             <li><a href="#" class="list-group-item ">Prohibited Items<span class="pull-right"><i class="fas fa-exclamation-triangle"></i></span></a></li>
-                            <li><a href="#" class="list-group-item">Guidelines<span class="pull-right"><img src="firstn/icon-guidelines.jpg"></span></a></li>
-                            <li><a href="#" class="list-group-item">Downloads<span class="pull-right"><img src="firstn/icon-downloads.jpg"></span></a></li>
-                            <li><a href="#" class="list-group-item">Track Your Shipment<span class="pull-right"><img src="firstn/icon-tracking.jpg"></span></a></li>
+                             <li><a href="#" class="list-group-item ">Prohibited Items<span class="pull-right"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></a></li>
+                            <li><a href="#" class="list-group-item">Guidelines<span class="pull-right"><i class="fa fa-newspaper-o" aria-hidden="true"></i></span></a></li>
+                            <li><a href="#" class="list-group-item">Downloads<span class="pull-right"><i class="fa fa-download" aria-hidden="true"></i></span></a></li>
+                            <li><a href="#" class="list-group-item">Track Your Shipment<span class="pull-right"><i class="fa fa-truck" aria-hidden="true"></i></span></a></li>
                 </ul>
              </div>
              <!-- <div class="card-footer">
@@ -100,7 +100,7 @@ ul{
                   <hr>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-                  <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+
                 </div>
                 <div class="col-md-4 mb-5">
                   <h2>Contact Us</h2>

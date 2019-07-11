@@ -51,21 +51,21 @@
       <!-- Slide One - Set the background image for this slide in the line below -->
       <div class="carousel-item active" style="background-image: url('img/slider/download.jpeg')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Expertise Courier Service</h2>
+          <h2 class="display-4">Expertise Diplomatic Courier Service</h2>
           <!-- <p class="lead">This is a description for the first slide.</p> -->
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('img/slider/1562741152186.png')">
+      <div class="carousel-item" style="background-image: url('img/slider/1562813521273.png')">
         <div class="carousel-caption d-none d-md-block">
-          <!-- <h2 class="display-4">Expertise Courier Service</h2>
+          <!-- <h2 class="display-4">Expertise Diplomatic Courier Service</h2>
           <p class="lead">This is a description for the second slide.</p> -->
         </div>
       </div>
       <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('img/slider/IMG_20190710_093720_728.jpg')">
+      <div class="carousel-item" style="background-image: url('img/slider/1562822804893.png')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Expertise Courier Service</h2>
+          <h2 class="display-4">Expertise Diplomatic Courier Service</h2>
           <!-- <p class="lead">This is a description for the second slide.</p> -->
         </div>
       </div>
