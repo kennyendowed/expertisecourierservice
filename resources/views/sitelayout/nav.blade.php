@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">HOME
+          <a class="nav-link" href="{{ url('/') }}">HOME
                 <span class="sr-only">(current)</span>
               </a>
         </li>
@@ -15,7 +15,7 @@
           <a class="nav-link" href="#">ABOUT US</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">TRACK SHIPMENT</a>
+          <a class="nav-link" href="{{ route('orders') }}">TRACK SHIPMENT</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">CONTACT US</a>

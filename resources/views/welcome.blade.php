@@ -121,7 +121,7 @@ ul{
                              <li><a href="#" class="list-group-item ">Prohibited Items<span class="pull-right"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></a></li>
                             <li><a href="#" class="list-group-item">Guidelines<span class="pull-right"><i class="fa fa-newspaper-o" aria-hidden="true"></i></span></a></li>
                             <li><a href="#" class="list-group-item">Downloads<span class="pull-right"><i class="fa fa-download" aria-hidden="true"></i></span></a></li>
-                            <li><a href="#" class="list-group-item">Track Your Shipment<span class="pull-right"><i class="fa fa-truck" aria-hidden="true"></i></span></a></li>
+                            <li><a href="{{route('orders')}}" class="list-group-item">Track Your Shipment<span class="pull-right"><i class="fa fa-truck" aria-hidden="true"></i></span></a></li>
                 </ul>
              </div>
              <!-- <div class="card-footer">
