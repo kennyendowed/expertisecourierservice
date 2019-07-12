@@ -43,7 +43,7 @@ class GeneralController extends Controller
           $posts = Product::where('product_id','LIKE',"%{$search}%")
                          ->get();
 
-          return view('pages.livesearchajax')->withPosts($posts);
+          return view('pages.tracker')->withPosts($posts);
       }
   }
 
