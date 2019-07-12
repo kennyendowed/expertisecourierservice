@@ -12,9 +12,6 @@
               </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">ABOUT US</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="{{ route('orders') }}">TRACK SHIPMENT</a>
         </li>
         <li class="nav-item">

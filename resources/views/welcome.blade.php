@@ -32,7 +32,7 @@ ul{
       <!-- Slide Three - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('img/slider/1562822804893.png')">
         <div class="carousel-caption d-none d-md-block">
-          <h2 class="display-4">Expertise Diplomatic Courier Service</h2>
+          <!-- <h2 class="display-4">Expertise Diplomatic Courier Service</h2> -->
           <!-- <p class="lead">This is a description for the second slide.</p> -->
         </div>
       </div>
@@ -47,40 +47,7 @@ ul{
         </a>
   </div>
 </header>
-
-                <div class="row">
-                  <div class="col-md-12 mb-5">
-                    <div class="card mt-4">
-                            <!-- <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt=""> -->
-                            <div class="card-body">
-                              <h2 class="card-title">What We Do</h2>
-                                <hr>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-                              <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-                              4.0 stars
-                            </div>
-                          </div>
-                          <!-- /.card -->
-                  </div>
-                  <!-- <div class="col-md-4 mb-5">
-                    <h2>Contact Us</h2>
-                    <hr>
-                    <address>
-                      <strong>Start Bootstrap</strong>
-                      <br>3481 Melrose Place
-                      <br>Beverly Hills, CA 90210
-                      <br>
-                    </address>
-                    <address>
-                      <abbr title="Phone">P:</abbr>
-                      (123) 456-7890
-                      <br>
-                      <abbr title="Email">E:</abbr>
-                      <a href="mailto:#">name@example.com</a>
-                    </address>
-                  </div> -->
-                </div>
+<br /><br />
 
        <div class="row">
          <div class="col-md-4 mb-5">
@@ -118,9 +85,7 @@ ul{
                  <hr>
                  <ul class="list-group">
 
-                             <li><a href="#" class="list-group-item ">Prohibited Items<span class="pull-right"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></a></li>
-                            <li><a href="#" class="list-group-item">Guidelines<span class="pull-right"><i class="fa fa-newspaper-o" aria-hidden="true"></i></span></a></li>
-                            <li><a href="#" class="list-group-item">Downloads<span class="pull-right"><i class="fa fa-download" aria-hidden="true"></i></span></a></li>
+                             <li><a href="#"  data-toggle="modal" data-target="#favoritesModal" class="list-group-item ">Prohibited Items<span class="pull-right"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></a></li>
                             <li><a href="{{route('orders')}}" class="list-group-item">Track Your Shipment<span class="pull-right"><i class="fa fa-truck" aria-hidden="true"></i></span></a></li>
                 </ul>
              </div>
@@ -138,29 +103,65 @@ ul{
                 <div class="col-md-8 mb-5">
                   <h2>What We Do</h2>
                   <hr>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-
+                  <p>As Diplomatic couriers we transfer classified information for the Department of State and specific personal bodies and individuals. Transfers are called “pouches” and they may be as small as an actual pouch of information or as large as truckloads. Our job is to keep the information safe, as we escort it between one of more than 275 embassies and consulates around the world and around the United States to it designated destination.</p>
                 </div>
                 <div class="col-md-4 mb-5">
                   <h2>Contact Us</h2>
                   <hr>
-                  <address>
+                  <!-- <address>
                     <strong>Start Bootstrap</strong>
                     <br>3481 Melrose Place
                     <br>Beverly Hills, CA 90210
                     <br>
-                  </address>
+                  </address> -->
                   <address>
                     <abbr title="Phone">P:</abbr>
-                    (123) 456-7890
+                    +1 512-643-4879
                     <br>
                     <abbr title="Email">E:</abbr>
-                    <a href="mailto:#">name@example.com</a>
+                    <a href="mailto:#">expertdiplomaticservice@diplomats.com</a>
                   </address>
                 </div>
               </div>
               <!-- /.row -->
+
+
+              <div class="modal fade" id="favoritesModal" tabindex="-1" role="dialog" aria-labelledby="favoritesModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h4 class="modal-title"
+        id="favoritesModalLabel">Prohibited Items</h4>
+      </div>
+      <div class="modal-body">
+        <h3>We do not carry the following items:</h3>
+        <p>
+      Stamped and prepaid postal envelopes and parcels<br />
+       Any illegal substance or product<br />
+       Temperature controlled freight<br />
+       Hazardous Materials requiring placards<br />
+       Prepared foods<br />
+       Passengers<br />
+       Poison<br />
+       Firearms, explosives and military equipment<br />
+       Hazardous substance and radioactive material<br />
+       Foodstuff and liquor<br />
+       Pornographic material<br />
+       All items that infringe the UK, USA Postal Act and all restricted items as per the guidelines.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button"
+           class="btn btn-default"
+           data-dismiss="modal">Close</button>
+        <span class="pull-right">
+
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
        @endsection
 
 
