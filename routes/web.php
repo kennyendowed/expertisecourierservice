@@ -47,23 +47,14 @@ Route::post('/register_new_user', 'Auth\RegisterController@createAffiliate')->na
 Route::post('/login', 'Auth\LoginController@affiliateLogin')->name('log_affiliate');
 Route::get('/orders/{order}', 'GeneralController@show')->name('orders');
   Route::get('/orders', 'GeneralController@index')->name('orders');
+    Route::get('/track', 'GeneralController@liveSearch')->name('track');
 
 
 Route::group(['middleware'=>'auth'], function () {
 
-  Route::get('/package', 'TokenPlansController@index')->name('package');
-  Route::post('/UserPackage', 'TokenPlansController@createPackage')->name('UserPackage');
-  Route::get('/payment', 'TokenPlansController@payment')->name('payment');
+
   //super admin
-	Route::get('verifyUser',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@verifyUser'])->name('verifyUser');
-  Route::get('videoUpload',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@videoUpload'])->name('videoUpload');
-  Route::get('videoDelete',['middleware'=>'check-permission:superadmin','uses'=>'VideosController@index'])->name('videoDelete');
-  Route::post('Update_video',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@Update_video'])->name('Update_video');
-  Route::get('/activate/{id?}',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@activateUser'])->name('activate');
-  Route::get('/deletefile/{id?}',['middleware'=>'check-permission:superadmin','uses'=>'VideosController@destroy'])->name('deletefile');
-  Route::post('summernoteeditor',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@postSummernoteeditor'])->name('summernoteeditor');
-  	Route::get('control',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@control'])->name('control');
-  // Route::post('summernoteeditor',array('as'=>'summernoteeditor.post',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@postSummernoteeditor']));
+	Route::post('product',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@store'])->name('product');
 
 // super admin and validUser
 	Route::get('video/{id}-{slug}',['middleware'=>'check-permission:user|admin|superadmin','uses'=>'HomeController@viewVideo'])->name('video');

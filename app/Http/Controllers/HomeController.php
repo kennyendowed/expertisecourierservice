@@ -9,6 +9,7 @@ use App\Models\upevent;
 use Carbon\Carbon;
 use Thumbnail;
 use VideoThumbnail;
+use App\Models\product;
 use App\Http\Requests\VideoUploadRequest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -37,6 +38,20 @@ class HomeController extends Controller
 return view('home');
   }
 
+  public function store(Request $request)
+  {
+    $topic_id=mt_rand(13, rand(100, 99999990));
+    $post = product::create(array(
+          'product_id' =>$topic_id,
+          'title'=>$request->title,
+          'body' =>$request->body,
+       'fafa' => $request->icon
+     ));
+
+
+      $message ='Topic has been successfully added!';
+    return redirect()->back()->with('status', $message);
+  }
   //update user profile
   public function updateProfile (Request $request)
   {
@@ -63,11 +78,7 @@ return view('home');
 
 
 //get user details
-  public function profile ()
-  {
-    $user_details = Auth::user();
-    return view('pages.profile')->with('user_details',$user_details);
-  }
+
 
 //get all category items for nav menu
 public function load_items($name,$id)
