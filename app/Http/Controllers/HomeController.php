@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use DB;
 use App\Models\upevent;
+use App\Models\packageupdate;
 use Carbon\Carbon;
 use Thumbnail;
 use VideoThumbnail;
@@ -38,8 +39,35 @@ class HomeController extends Controller
 return view('home');
   }
 
+  public function viewVideo(Request $request)
+  {
+    $data = packageupdate::where('product_id','=',$request->id)->orderBy('id', 'desc')->first()->id;
+    $data = packageupdate::where('id','=',$data)->get();
+// dd($data);
+        return view('pages.view',compact('data',$data));
+  }
+
+  public function UPstore(Request $request)
+  {
+
+
+    $topic_id=$request->pid;
+  $posts = Product::all();
+     $post = packageupdate::create(array(
+           'product_id' =>$topic_id,
+           'title'=>$request->title,
+           'body' =>$request->body,
+        'fafa' => $request->icon
+      ));
+
+
+      $message ='Topic has been successfully added!';
+    return view('pages.update',compact('status', $message,'posts',$posts));
+  }
   public function store(Request $request)
   {
+
+
     $topic_id=mt_rand(13, rand(100, 99999990));
     $post = product::create(array(
           'product_id' =>$topic_id,
@@ -48,9 +76,24 @@ return view('home');
        'fafa' => $request->icon
      ));
 
+     $post = packageupdate::create(array(
+           'product_id' =>$topic_id,
+           'title'=>$request->title,
+           'body' =>$request->body,
+        'fafa' => $request->icon
+      ));
+
 
       $message ='Topic has been successfully added!';
     return redirect()->back()->with('status', $message);
+  }
+
+  public function update()
+  {
+  //  $posts = Product::select('product_id','title','body')->distinct()->get();
+    $posts = Product::all();
+
+  return view('pages.update',compact('posts',$posts));
   }
   //update user profile
   public function updateProfile (Request $request)
@@ -310,12 +353,7 @@ public function Update_video(Request $request){
                 return view('welcome', compact('data',$data,'data2',$data2));
               }
 
-              public function viewVideo(Request $request)
-              {
-                  $data = videos::find($request->id);
 
-                    return view('pages.video',compact('data',$data));
-              }
 
 
    //            public function testThumbnail()

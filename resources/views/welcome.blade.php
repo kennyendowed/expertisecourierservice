@@ -56,7 +56,7 @@ ul{
              <div class="card-body">
                <h4 class="card-title">ABOUT US</h4>
                  <hr>
-               <p class="card-text">Express Courier was launched in 2000 by our founder Managing Partner Mr. philip cole.</p>
+               <p class="card-text">When you ship with Expertise Diplomatic Courier Service– you’re shipping with specialists in international shipping and courier delivery services! With our wide range of express parcel and package services, along with shipping and tracking solutions to fit your needs – you will learn with us how Expertise Diplomatic Courier Service can deliver!</p>
              </div>
              <!-- <div class="card-footer">
                <a href="#" class="btn btn-primary">Find Out More!</a>

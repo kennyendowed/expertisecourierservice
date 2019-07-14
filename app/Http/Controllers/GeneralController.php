@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\product;
 use Illuminate\Http\Request;
+use App\Models\packageupdate;
 use App\Order;
+use Mail;
 class GeneralController extends Controller
 {
   public function __construct()
@@ -12,12 +14,48 @@ class GeneralController extends Controller
 
   }
 
+public function contact()
+{
+    return view('pages.contact');
+}
 
-          public function index()
-            {
+public function about()
+{
+  return view('pages.about');
+}
 
-              return view('pages.Tracker');
-            }
+
+
+public function send(Request $request){
+     $data = array(
+                     'name'=>$request->name,
+                     'email'=>$request->email,
+                     'phone'=>$request->phone,
+                     'messagetext'=>$request->message
+                 );
+
+     Mail::send('contacttext', $data, function ($message) use ($request){
+         /* Config ********** */
+         $to_email = "laryrichard18@gmail.com";
+         $to_name  = "Erhan Yakut";
+         $subject  = "Laravel Ajax Form Message";
+         $message->subject ($subject);
+         $message->from ($request->email, $request->name);
+         $message->to ($to_email, $to_name);
+     });
+     if(count(Mail::failures()) > 0){
+         $status = 'error';
+     } else {
+         $status = 'success';
+     }
+     return response()->json(['response' => $status]);
+ }
+
+      public function index()
+        {
+
+          return view('pages.Tracker');
+        }
 
             /**
        * Display the specified resource.
@@ -40,7 +78,7 @@ class GeneralController extends Controller
       }
       else
       {
-          $posts = Product::where('product_id','LIKE',"%{$search}%")
+          $posts = packageupdate::where('product_id','LIKE',"%{$search}%")
                          ->get();
 
           return view('pages.tracker')->withPosts($posts);

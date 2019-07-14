@@ -23,7 +23,7 @@ return view('welcome');
 });
 // Route::get('/', 'HomeController@welcomehome')->name('/');
 
-
+Route::post('/send', 'GeneralController@send');
 Route::get('/fire', function () {
     event(new OrderStatusChanged);
 
@@ -46,18 +46,22 @@ Route::post('/register_new_user', 'Auth\RegisterController@createAffiliate')->na
 
 Route::post('/login', 'Auth\LoginController@affiliateLogin')->name('log_affiliate');
 Route::get('/orders/{order}', 'GeneralController@show')->name('orders');
-  Route::get('/orders', 'GeneralController@index')->name('orders');
-    Route::get('/track', 'GeneralController@liveSearch')->name('track');
-
+Route::get('/orders', 'GeneralController@index')->name('orders');
+Route::get('/track', 'GeneralController@liveSearch')->name('track');
+Route::get('/contact', 'GeneralController@contact')->name('contact');
+Route::get('/about', 'GeneralController@about')->name('about');
+Route::get('/update', ['middleware'=>'check-permission:admin|superadmin','uses'=>'HomeController@update'])->name('update');
 
 Route::group(['middleware'=>'auth'], function () {
 
 
   //super admin
 	Route::post('product',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@store'])->name('product');
+  	Route::post('UPproduct',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@UPstore'])->name('UPproduct');
 
 // super admin and validUser
 	Route::get('video/{id}-{slug}',['middleware'=>'check-permission:user|admin|superadmin','uses'=>'HomeController@viewVideo'])->name('video');
+  	Route::get('activate/{id}',['middleware'=>'check-permission:admin|superadmin','uses'=>'HomeController@viewVideo'])->name('activate');
 
 
 

@@ -1,23 +1,56 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#"><img src="{{URL::asset('img/expertisecourierservicelogo.png')}}" alt="logo"></a>
+    <a class="navbar-brand" href="{{ url('/') }}"><img src="{{URL::asset('img/expertisecourierservicelogo.png')}}" alt="logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
+
       <ul class="navbar-nav ml-auto">
+
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('/') }}">HOME
                 <span class="sr-only">(current)</span>
               </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{{ route('about') }}">ABOUT US</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{ route('orders') }}">TRACK SHIPMENT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">CONTACT US</a>
+          <a class="nav-link" href="{{ route('contact') }}">CONTACT US</a>
         </li>
+             @auth
+         @if(checkPermission(['user']))
+         @elseif(checkPermission(['admin']))
+
+
+           @elseif(checkPermission(['superadmin']))
+            <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a></li>
+               <li class="nav-item">  <a class="nav-link" href="{{route('update') }}" >Update Package</a></li>
+                 <li class="nav-item">  <a class="nav-link" href="{{route('logout') }}" >Logout</a></li>
+            @elseif(checkPermission(['invaliduser']))
+            @else
+            I don't have any records!
+          @endif
+          @endauth
+
+
+          @unless (Auth::check())
+                <!-- <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}" >Register</a>  </li>
+              <li class="nav-item">  <a class="nav-link" href="{{ route('login') }}" >Login</a>  </li> -->
+
+
+
+          @endunless
+
+
       </ul>
+
+
+
     </div>
   </div>
 </nav>

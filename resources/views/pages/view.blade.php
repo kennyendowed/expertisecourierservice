@@ -1,6 +1,6 @@
 @extends('layouts.site')
 
-@section('title') Dashboard @endsection
+@section('title') Update Package @endsection
   @section('content')
 
 <br /><br />
@@ -43,10 +43,13 @@
 
 
                           <div class="form">
-                            <form method="POST" action="{{ route('product') }}">
+
+                                @foreach($data as $ite)
+                            <form method="POST" action="{{ route('UPproduct') }}">
                                @csrf
+                           <input id="pid" type="hidden" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="pid" value="{{$ite->product_id}}"  required autofocus />
                                <div class="form-group">
-                                 <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" placeholder="Enter your title here.." required autofocus>
+                                 <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{$ite->title}}" placeholder="Enter your title here.." required autofocus>
                                  @if ($errors->has('title'))
                                  <span class="invalid-feedback" role="alert">
                                    <strong>{{ $errors->first('title') }}</strong>
@@ -54,7 +57,7 @@
                                  @endif
                                </div>
                                <div class="form-group">
-                                 <input id="title" type="text" class="form-control{{ $errors->has('body') ? ' is-invalid' : '' }}" name="body" value="{{ old('body') }}" placeholder="Enter your body here.." required autofocus>
+                                 <input id="title" type="text" class="form-control{{ $errors->has('body') ? ' is-invalid' : '' }}" name="body" value="{{$ite->body}}" placeholder="Enter your body here.." required autofocus>
                                  @if ($errors->has('body'))
                                  <span class="invalid-feedback" role="alert">
                                    <strong>{{ $errors->first('body') }}</strong>
@@ -76,7 +79,9 @@
                                <button type="submit" class="button mid dark">Save<span class="primary">  Now!</span></button>
 
                              </form>
-                                          </div>
+                                  </div>
+                                      @endforeach
+
 
                                         </div>
                                       </div>
