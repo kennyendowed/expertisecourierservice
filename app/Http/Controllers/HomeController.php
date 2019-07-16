@@ -63,7 +63,7 @@ class HomeController extends Controller
 
 
       $message ='Topic has been successfully added!';
-    return view('pages.update',compact('status', $message,'posts',$posts));
+    return view('pages.update',compact('status',$message,'posts',$posts));
   }
   public function store(Request $request)
   {
@@ -92,6 +92,30 @@ class HomeController extends Controller
     return redirect()->back()->with('status', $message);
   }
 
+  public function destroy($id)
+  {
+
+  $data2 = product::where('product_id', $id);
+    $data = packageupdate::where('product_id', $id); 
+
+    // $destinationPath =storage_path().'/app/public/videos/'.$data->filename;
+           try{
+               $data2->delete();
+               $data->delete();
+               $bug = 0;
+           }
+           catch(\Exception $e){
+               $bug = $e->errorInfo[1];
+           }
+           if($bug==0){
+               // unlink($destinationPath);
+               $message ='Account has been successfully updated!';
+             return redirect()->back()->with('status', $message);
+           }else{
+             $message ='Account has been unsuccessfully Deleted!';
+           return redirect()->back()->with('status', $message);
+           }
+  }
   public function update()
   {
   //  $posts = Product::select('product_id','title','body')->distinct()->get();

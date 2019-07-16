@@ -138,7 +138,7 @@
                               <td>{{$ite->product_id}}</td>
                               <td>{{$ite->title}}</td>
                               <td>{{$ite->body}}</td>
-                            <td><a href ='activate/{{$ite->product_id}}'>Activate</a></td>
+                            <td><a href ='activate/{{$ite->product_id}}'>Activate</a> || <a href ='deletefile/{{$ite->product_id}}'>Delete</a></td>
                             </tr>
 
 
@@ -151,8 +151,8 @@
 
        </div><!-- /.modal -->
 
-
-
+       <br /><br /><br />
+       <br />
  </section>
     </main>
 

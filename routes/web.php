@@ -51,6 +51,7 @@ Route::get('/track', 'GeneralController@liveSearch')->name('track');
 Route::get('/contact', 'GeneralController@contact')->name('contact');
 Route::get('/about', 'GeneralController@about')->name('about');
 Route::get('/update', ['middleware'=>'check-permission:admin|superadmin','uses'=>'HomeController@update'])->name('update');
+  Route::get('/deletefile/{id?}',['middleware'=>'check-permission:superadmin','uses'=>'HomeController@destroy'])->name('deletefile');
 
 Route::group(['middleware'=>'auth'], function () {
 
