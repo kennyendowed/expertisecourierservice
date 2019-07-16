@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->longText('fafa');
+            $table->timestamp('time');
             $table->timestamps();
         });
     }

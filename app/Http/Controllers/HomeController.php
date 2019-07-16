@@ -36,7 +36,7 @@ class HomeController extends Controller
   public function index()
   {
 
-return view('home');
+      return view('home');
   }
 
   public function viewVideo(Request $request)
@@ -57,7 +57,8 @@ return view('home');
            'product_id' =>$topic_id,
            'title'=>$request->title,
            'body' =>$request->body,
-        'fafa' => $request->icon
+        'fafa' => $request->icon,
+           'time' => $request->date.' '.$request->time
       ));
 
 
@@ -73,14 +74,17 @@ return view('home');
           'product_id' =>$topic_id,
           'title'=>$request->title,
           'body' =>$request->body,
-       'fafa' => $request->icon
+       'fafa' => $request->icon,
+       'time' => $request->date.' '.$request->time
+
      ));
 
      $post = packageupdate::create(array(
            'product_id' =>$topic_id,
            'title'=>$request->title,
            'body' =>$request->body,
-        'fafa' => $request->icon
+        'fafa' => $request->icon,
+        'time' => $request->date.' '.$request->time
       ));
 
 

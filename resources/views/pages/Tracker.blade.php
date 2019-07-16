@@ -25,7 +25,7 @@
                   <form id="myForm">
                       <span class="input-group-addon" style="color: white; background-color: rgb(124,77,255);">Enter Track Code</span>
                   <input type="text" autocomplete="off" id="search" class="form-control input-lg" placeholder="Enter Blog Title Here">
-
+              <input type="submit" value="Send Message" class="btn btn-primary btn-submit" data-loading-text="Sending...">
                       </form>
                     </div>
 
@@ -66,23 +66,51 @@
              integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
              crossorigin="anonymous">
     </script>
+
+
+
     <script>
-$(document).ready(function(){
-   $("#search").keyup(function(){
+
+    $.ajaxSetup({
+
+       headers: {
+
+           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+       }
+
+   });
+
+
+
+   $(".btn-submit").click(function(e){
+
+       e.preventDefault();
        var str=  $("#search").val();
        if(str == "") {
                $( "#txtHint" ).html("<b>Package information will be listed here...</b>");
        }else {
-               $.get( "{{ url('track?id=') }}"+str, function( data ) {
-                   $( "#txtHint" ).html( data );
-            });
-       }
-   });
-});
-</script>
+           $.ajax({
+
+          type:'GET',
+
+          url:"{{ url('track?id=') }}"+str,
+
+          data:{str:str},
+
+          success:function(data){
+ $( "#txtHint" ).html( data );
+
+          }
+
+       });
+
+}
+
+ });
 
 
-    <script>
+
        // jQuery(document).ready(function(){
        //    jQuery('#ajaxSubmit').click(function(e){
        //       e.preventDefault();

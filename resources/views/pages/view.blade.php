@@ -75,6 +75,8 @@
                                    <div class="invalid-feedback">
                                      Please select a valid country.
                                    </div>
+                                   {{Form::date('date', \Carbon\Carbon::today(),['class' => 'form-control mb-2 mr-sm-2 mb-sm-0'])}}
+{{Form::time('time', \Carbon\Carbon::now()->timezone('Europe/Brussels')->format('H:i:s'),['class' => 'form-control'])}}
                                  </div>
                                <button type="submit" class="button mid dark">Save<span class="primary">  Now!</span></button>
 
