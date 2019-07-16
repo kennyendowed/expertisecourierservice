@@ -20,6 +20,8 @@ if(!empty($posts ))
 
                 foreach ($posts as $post)
                 {
+                  $new_date = date_format(date_create($post->time), 'l jS \of F Y');
+                  $time = date_format(date_create($post->time), 'h:i:s A');
                   // echo $post->time;
                 $body = substr(strip_tags($post->body),0,200)."...";
                 $show = url('blog/'.$post->slug);
@@ -31,7 +33,7 @@ if(!empty($posts ))
                       </svg>
 
                    </div>
-                   <div class="tracking-date">'.date($post->time).'<span></span></div>
+                   <div class="tracking-date">'.$new_date.'<span>'.$time.'</span></div>
                    <div class="tracking-content">'.$post->title.'<span>'.$body.'</span></div>
                 </div>
 
